@@ -7,7 +7,15 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
-  },
-  "devDependencies": {
+    "axios": "^0.26.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-jwt": "^6.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.4",
+    "morgan": "^1.10.0"
   }
 }

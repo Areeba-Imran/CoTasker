@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter} from 'react-router-dom'
+import { AuthProviderWrapper } from './context/auth'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <AuthProviderWrapper>
+      <App />
+    </AuthProviderWrapper>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
