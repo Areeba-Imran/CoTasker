@@ -5,18 +5,20 @@ const jwt = require('jsonwebtoken');
 const { isAuthenticated } = require("../middleware/jwt");
 
 router.post('/signup', (req, res, next) => {
-	const { email, password, name } = req.body
+	const { email, password, name, imagePath } = req.body
+	console.log('in server side req body: ' + req)
 	// check if email or name or password are empty
 	if (email === '' || password === '' || name === '') {
 		res.status(400).json({ message: 'Provide email, password and name' })
 		return
 	}
-	// validate the email address
-	// const emailValid = email.includes('@')
-	// if (!emailValid) {
-	// 	res.status(400).json({ message: 'Provide a valid email address' })
-	// 	return
-	// }
+
+	const emailValid = email.includes('@')
+	if (!emailValid) {
+		res.status(400).json({ message: 'Provide a valid email address' })
+		return
+	}
+	
 	if (password.length < 4) {
 		res.status(400).json({ message: 'Password has to be 4 chars min' })
 		return
@@ -33,10 +35,11 @@ router.post('/signup', (req, res, next) => {
 			const salt = bcrypt.genSaltSync();
 			const hashedPassword = bcrypt.hashSync(password, salt)
 			// create the new user
-			return User.create({ email, password: hashedPassword, name })
+			return User.create({ email, password: hashedPassword, name, imagePath })
 				.then(createdUser => {
-					const { email, name, _id } = createdUser
-					const user = { email, name, _id }
+					console.log(createdUser)
+					const { email, name, _id, imagePath } = createdUser
+					const user = { email, name, _id, imagePath }
 					res.status(201).json({ user: user })
 				})
 				.catch(err => {
@@ -60,14 +63,14 @@ router.post('/login', (req, res, next) => {
 			}
 			const passwordCorrect = bcrypt.compareSync(password, foundUser.password)
 			if (passwordCorrect) {
-				const { _id, email, name } = foundUser
-				const payload = { _id, email, name }
+				const { _id, email, name, imagePath } = foundUser
+				const payload = { _id, email, name, imagePath }
 				// create the json web token
 				const authToken = jwt.sign(
 					payload,
 					process.env.JWT_SECRET,
 					{ algorithm: 'HS256', expiresIn: '12h' }
-				)
+				) 
 				res.status(200).json({ authToken })
 			} else {
 				res.status(401).json({ message: 'Unable to authenticate' })

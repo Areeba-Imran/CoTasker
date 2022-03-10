@@ -16,6 +16,10 @@ require("./config")(app);
 
 // 👇 Start handling routes here
 // Contrary to the views version, all routes are controlled from the routes/index.js
+
+const taskRoutes = require("./routes/task");
+app.use("/api/task", taskRoutes);
+
 const userRoutes = require("./routes/user");
 app.use("/api/user", userRoutes);
 

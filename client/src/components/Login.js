@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { AuthContext } from '../context/auth'
+import homeImg from './images/home-img.png'
 
 export default function Login() {
 
@@ -18,15 +19,12 @@ export default function Login() {
 		const requestBody = { email, password }
 		axios.post('/api/auth/login', requestBody)
 			.then(response => {
-				// redirect to projects
-				console.log('i have a token mothafukkas')
+				console.log('i have a token yay')
 				const token = response.data.authToken
-				// store the token
 				storeToken(token)
 				verifyStoredToken()
 					.then(() => {
-						// redirect to projects
-						navigate('/')
+						navigate('/browse-tasks')
 					})
 			})
 			.catch(err => {
@@ -39,9 +37,11 @@ export default function Login() {
 	const handlePassword = e => setPassword(e.target.value)
 
 	return (
-		<>
-			<h1>Login</h1>
-			<form onSubmit={handleSubmit}>
+		<div className='auth-page'>
+			<img src={homeImg} alt="home" className='homeImg'/>
+			<div className="auth-form-panel">
+			<h3>Login</h3>
+			<form onSubmit={handleSubmit} className='auth-form'>
 				<label htmlFor="email">Email: </label>
 				<input type="text" value={email} onChange={handleEmail} />
 				<label htmlFor="password">Password: </label>
@@ -51,8 +51,9 @@ export default function Login() {
 
 			{errorMessage && <h5>{errorMessage}</h5>}
 
-			<h3>Don't have an account?</h3>
+			<h4>Don't have an account?</h4>
 			<Link to='/signup'>Signup</Link>
-		</>
+			</div>
+		</div>
 	)
 }

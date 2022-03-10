@@ -1,38 +1,270 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Domine&display=swap');
+App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Navbar Component starts */
+
+.navbar{
+  background: linear-gradient(to bottom,#7b87fd,#61b1fb);
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.nav-btns-section{
+  margin-right: 60px;
+  justify-content: space-between;
+  display: flex;
+  width: 500px;
+  align-items: center;
+}
+
+.appName{
+  font-family: 'Domine', serif;
+  padding-left: 50px;
+  font-weight: 700;
+  color:white;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.navbar-profile-icon{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#dropdownMenu{
+  background-color: transparent;
+  border: none;
+}
+
+.dropdown-menu[data-bs-popper] {
+  top: 67px;
+  left: -60px;
+  margin-top: 0.125rem;
+}
+/* Navbar Component ends*/
+
+/* img on main page */
+
+.homeImg{
+  width: 400px
+}
+
+/* Sign Up page styling starts */
+
+.auth-page{
+  font-family: 'Domine', serif;
+  display: flex;
+ 
+  justify-content: space-around;
+}
+
+.auth-form{
+  display:flex;
+  flex-direction: column;
+}
+
+.auth-form-panel{
+  border: 1px solid black;
+}
+
+/* Sign Up page styling ends */
+
+/* Post A Task Page Styling starts */
+
+.task-form{
+  margin: 70px 0px 40px;
+  padding: 30px 60px;
+  width: 500px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  position: relative;
+}
+
+.post-task-page{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.taskPostBtn{
+  width: 130px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.postTaskHeading{
+  margin: -54px auto 30px;
+  background: white;
+  width: fit-content;
+}
+
+#titleMinChars{
+  position: absolute;
+  right: 61px;
+  top: 48px;
+  font-size: 12px;
+}
+
+#descMinChars{
+  position: absolute;
+  right: 61px;
+  top: 135px;
+  font-size: 12px;
+}
+
+#taskDesc{
+  resize: none;
+}
+
+/* Post A Task Page Styling ends */
+
+/* Browse Tasks Page starts */
+
+.browse-tasks-page{
+  margin: auto;
+  width: 600px;
+}
+
+.browse-tasks-page h2{
+  font-family: 'Domine', serif;
+  margin: 40px 0px;
+}
+
+.task-min-view{
+  border: 1px solid black;
+  margin: 30px 0px;
+  border-radius: 10px;
+  padding: 10px 0px 10px 60px;
+  position: relative;
+}
+
+.task-min-view p{
+  margin-bottom: 0px;
+}
+
+.createrImg{
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  left: -40px;
+  top: 25px;
+}
+
+.offers-browser-page{
+  position: absolute;
+  right: 0;
+  top: 11px;
+  font-size: 18px;
+  margin-right: 20px;
+  color: orangered;
+  font-weight: 500;
+}
+
+/* Browse Tasks Page ends */
+
+/* Task Details Page starts */
+
+.taskDetailsPage{
+  width: 600px;
+  margin: 70px auto 40px;
+  position: relative;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.taskDetailsPage div{
+  background-color: #e5f3ff;
+  margin: 0px 20px 5px;
+  padding: 10px;
+  border-radius: 10px;;
+}
+
+.taskDetailsPage div>p{
+  margin-bottom: 0px;
+}
+
+.taskImg{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+.makeAnOffer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.makeAnOffer button{
+  margin: 10px 0px;
+  width: 190px;
+}
+
+.budget-task-details{
+  font-size: 20px;
+}
+
+.detail-page-headings{
+  font-weight: 500;
+}
+
+.taskDetailsHeading{
+  margin: -14px auto 30px;
+  background: white;
+  width: fit-content;
+}
+
+.updateBtnSection{
+  display: flex;
+  justify-content: space-between;
+}
+
+.taskEditBtn{
+  background-color: orange;
+  padding: 0px 3px;
+  position: absolute;
+  top: 10px;
+  right: 90px;
+}
+
+.taskDeleteBtn{
+  background-color: orange;
+  padding: 0px 3px;
+  position: absolute;
+  top: 10px;
+  right: 50px;
+}
+
+/* Task Details Page ends */
+
+/* Profile Page Styling starts here */
+
+.profilePage{
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px auto;
+}
+
+.profilePageImg{
+  width: 150px;
+  border: 3px solid orange;
+  border-radius: 100px;
+}
+
+/* Profile Page Styling ends here */
