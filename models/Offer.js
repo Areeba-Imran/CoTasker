@@ -10,6 +10,10 @@ const offerSchema = new Schema(
         type:Schema.Types.ObjectId,
         ref: 'Task'
     },
+    taskPoster:{
+      type:Schema.Types.ObjectId,
+      ref: 'User'
+    },
     offeredAmount: {
         type: Number,
         required:true

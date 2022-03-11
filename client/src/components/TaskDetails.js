@@ -48,7 +48,7 @@ export default function TaskDetails() {
     const sendOffer = (e) =>{
         e.preventDefault()
 
-        const reqBody = {tasker, task: id, offeredAmount, offerAccepted: false}
+        const reqBody = {tasker, taskPoster: taskDetails.creater, task: id, offeredAmount, offerAccepted: false}
 
         if(offeredAmount){
             axios.post('/api/offer', reqBody)
@@ -127,7 +127,7 @@ export default function TaskDetails() {
                                 </div>
                             </div>
                             <div className="modal-footer modal-ends">
-                                <button type="submit" className="btn btn-primary">Send</button>
+                                <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Send</button>
                             </div>
                         </form>
                     </div>

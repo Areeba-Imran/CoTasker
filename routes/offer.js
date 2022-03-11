@@ -3,8 +3,8 @@ const Offer = require('../models/Offer')
 
 router.post("/", (req, res, next) => {
     
-    let {tasker, task, offeredAmount, offerAccepted} = req.body
-    let data = {tasker, task, offeredAmount, offerAccepted}
+    let {tasker, taskPoster, task, offeredAmount, offerAccepted} = req.body
+    let data = {tasker, taskPoster, task, offeredAmount, offerAccepted}
     Offer.create(data)
         .then(offerMade =>{
             res.status(201).json({ message: 'Offer Created', offerMade})
@@ -19,11 +19,11 @@ router.get("/offers-received/:createrId", (req, res, next)=>{
 
     let createrId = req.params.createrId
 
-    Offer.find({'task.creater._id': createrId}).populate('task')
-        
-                .then(response =>{
-                    console.log('backend res ' + response)
-                })
+    Offer.find({'taskPoster': createrId}).populate('task').populate('tasker')
+        .then(offer =>{
+            console.log('backend res ' + offer)
+            res.status(201).json({offer})
+        })
       
 })
 

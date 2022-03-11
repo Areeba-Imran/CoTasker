@@ -25,15 +25,8 @@ export default function UserProfile() {
         <div className='profilePage'>
             <img className="profilePageImg" src={user.imagePath} alt="user"/>
             <h4>{user.name}</h4>
-            <h1>Posted Tasks</h1>
-            {tasksArr.map(task =>{
-                return(
-                    <div key={task._id}>
-                    <h3>{task.title}</h3>
-                    </div>
-                    )
-                
-            })}
+            
+            
         </div> : 
         <div className='loadingIcon'>
             <Hypnosis />
