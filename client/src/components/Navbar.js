@@ -12,8 +12,8 @@ export default function Navbar() {
         isLoggedIn ?
             (
                 <nav className='navbar'>
-                    <Link to='/post-task-categories' className='appName'>
-                        <h1>Co Tasker</h1>			
+                    <Link to='/browse-tasks' className="cotaskerLink">
+                        <h1 className='appName'>Co Tasker</h1>			
                     </Link>
                     <div className='nav-btns-section'>
                         <Link to='/post-task'>
@@ -31,11 +31,16 @@ export default function Navbar() {
                                 <img src={user.imagePath} alt="profie" className='navbar-profile-icon'/>
                             </button>
                             <ul className="dropdown-menu" aria-labelledby="dropdownMenu">
-                                <Link to={`/user-profile/${user._id}`}>
+                                <Link to={`/user-profile/${user._id}`} className='nav-links'>
                                     <li><button className="dropdown-item" type="button"><i className="bi bi-person-fill"></i> My Profile</button></li>
                                 </Link>
-                                <li><button className="dropdown-item" type="button">Another action</button></li>
-                                <li><button className="dropdown-item" type="button">Something else here</button></li>
+                                <Link to={`posted-tasks`} className='nav-links'>
+                                    <li><button className="dropdown-item" type="button"><i className="bi bi-view-stacked"></i> Posted Tasks</button></li>
+                                </Link>
+                                <Link to={`view-offers`} className='nav-links'>
+                                    <li><button className="dropdown-item" type="button"><i className="bi bi-list-task"></i> View Offers</button></li>
+                                </Link>
+                                <li><button className="dropdown-item" type="button"><i className="bi bi-envelope-paper"></i> Inbox</button></li>
                             </ul>
                         </div>
                     </div>
@@ -44,7 +49,7 @@ export default function Navbar() {
             ) : (
                 <nav className='navbar'>
                     <h1 className='appName'>Co Tasker</h1>
-                    <div className='nav-btns-section'>
+                    <div className='nav-btns-section2'>
                         <Link to='/signup'>
                             <button className='btn btn-outline-light'>Signup</button>
                         </Link>

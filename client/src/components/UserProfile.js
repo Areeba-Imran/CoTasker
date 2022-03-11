@@ -2,6 +2,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import { AuthContext } from '../context/auth'
 import { useParams, Link } from 'react-router-dom';
+import Hypnosis from "react-cssfx-loading/lib/Hypnosis"
 
 export default function UserProfile() {
 
@@ -10,11 +11,13 @@ export default function UserProfile() {
     const [tasksArr, setTasksArr] = useState('');
 
     useEffect(() => {
-        axios.get(`/api/user/${id}`)
+        if(user){
+            axios.get(`/api/user/${id}`)
           .then(response =>{
             setTasksArr(response.data.tasksByCreater)
           })
-        },[])
+        }  
+    },[])
 
     return (
 
@@ -25,11 +28,16 @@ export default function UserProfile() {
             <h1>Posted Tasks</h1>
             {tasksArr.map(task =>{
                 return(
+                    <div key={task._id}>
                     <h3>{task.title}</h3>
+                    </div>
                     )
                 
             })}
-        </div>: ''
+        </div> : 
+        <div className='loadingIcon'>
+            <Hypnosis />
+        </div>
         
     )
 }

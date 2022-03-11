@@ -46,7 +46,7 @@ export default function EditTask() {
         setTitle(taskDetails.title)
         setDescription(taskDetails.description)
         setCategory(taskDetails.category)
-        setBudget(taskDetails.budget)
+        taskDetails.budget && setBudget(taskDetails.budget)
         setOpenToOffers(taskDetails.openToOffers)
         setLocation(taskDetails.location)
         setImagePath(taskDetails.imagePath)

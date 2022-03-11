@@ -4,6 +4,12 @@ App-link {
   color: #61dafb;
 }
 
+.loadingIcon{
+  position: absolute;
+  top:50%;
+  left: 50%;
+}
+
 /* Navbar Component starts */
 
 .navbar{
@@ -22,13 +28,24 @@ App-link {
   align-items: center;
 }
 
+.nav-btns-section2{
+  margin-right: 60px;
+  justify-content: space-around;
+  display: flex;
+  width: 300px;
+  align-items: center;
+}
+
 .appName{
   font-family: 'Domine', serif;
   padding-left: 50px;
   font-weight: 700;
   color:white;
+  font-size: 33px;
+}
+
+.cotaskerLink{
   text-decoration: none;
-  font-size: 30px;
 }
 
 .navbar-profile-icon{
@@ -47,6 +64,10 @@ App-link {
   top: 67px;
   left: -60px;
   margin-top: 0.125rem;
+}
+
+.nav-links{
+  text-decoration: none;
 }
 /* Navbar Component ends*/
 
@@ -71,7 +92,7 @@ App-link {
 }
 
 .auth-form-panel{
-  border: 1px solid black;
+  margin-top: 40px;
 }
 
 /* Sign Up page styling ends */
@@ -102,9 +123,10 @@ App-link {
 }
 
 .postTaskHeading{
-  margin: -54px auto 30px;
+  margin: -48px auto 30px;
   background: white;
   width: fit-content;
+  font-family: 'Domine', serif;
 }
 
 #titleMinChars{
@@ -136,15 +158,17 @@ App-link {
 
 .browse-tasks-page h2{
   font-family: 'Domine', serif;
-  margin: 40px 0px;
+  margin: 53px 0px 40px;
 }
 
 .task-min-view{
   border: 1px solid black;
   margin: 30px 0px;
   border-radius: 10px;
-  padding: 10px 0px 10px 60px;
+  padding: 10px 0px 10px 45px;
   position: relative;
+  display: flex;
+  justify-content: space-around;
 }
 
 .task-min-view p{
@@ -158,17 +182,28 @@ App-link {
   object-fit: cover;
   position: absolute;
   left: -40px;
-  top: 25px;
+  top: 24px;
+  border: 2px solid orange;
 }
 
 .offers-browser-page{
-  position: absolute;
+  /* position: absolute;
   right: 0;
   top: 11px;
   font-size: 18px;
-  margin-right: 20px;
+  margin-right: 20px; */
   color: orangered;
   font-weight: 500;
+  width: 100px;
+}
+
+.task-info-browser{
+  width:430px;
+  color: black;
+}
+
+.browser-link{
+  text-decoration: none;
 }
 
 /* Browse Tasks Page ends */
@@ -183,7 +218,7 @@ App-link {
   border-radius: 10px;
 }
 
-.taskDetailsPage div{
+.detail-section{
   background-color: #e5f3ff;
   margin: 0px 20px 5px;
   padding: 10px;
@@ -223,9 +258,10 @@ App-link {
 }
 
 .taskDetailsHeading{
-  margin: -14px auto 30px;
+  margin: -18px auto 30px;
   background: white;
   width: fit-content;
+  font-family: 'Domine', serif;
 }
 
 .updateBtnSection{
@@ -249,6 +285,18 @@ App-link {
   right: 50px;
 }
 
+.modal-ends{
+  justify-content: center;
+}
+
+.offerPending{
+  position: absolute;
+  top: 10px;
+  right: 90px;
+  color: orange;
+  font-weight: 500;
+}
+
 /* Task Details Page ends */
 
 /* Profile Page Styling starts here */
@@ -268,3 +316,9 @@ App-link {
 }
 
 /* Profile Page Styling ends here */
+
+/* Posted Tasks Stylinh starts here */
+.postedTaskHeading{
+  font-family: 'Domine', serif;
+}
+/* Posted Tasks Stylinh ends here */
